@@ -57,7 +57,7 @@ export default function Navbar() {
       {/* logo */}
       <Link href="/" className="relative w-full max-w-[150px] h-12">
         <Image
-          src="/logo.png"
+          src="/Logo.png"
           alt="Logo"
           sizes="(max-width: 768px) 120px, 150px"
           className="object-contain"
