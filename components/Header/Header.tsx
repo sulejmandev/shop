@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Badge, Button, Image } from '@heroui/react';
 import Navbar from './components/Navbar';
 import { useCart } from '@/lib/stores/cartStore';
+import NavbarDrawer from './components/NavbarDrawer';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -34,20 +35,26 @@ export default function Header() {
 
           <Link href="/" className="relative w-full h-9 max-w-[150px] mx-auto">
             <Image
-              src="/logo.png"
+              src="/Logo.png"
               alt="Logo"
               sizes="(max-width: 768px) 120px, 150px"
               className="object-contain"
             />
           </Link>
-
-          <button onClick={() => setOpen(!open)}>
+          <NavbarDrawer>
             {open ? (
               <X className="w-5 h-5" />
             ) : (
               <TextAlignJustify className="w-5 h-5" />
             )}
-          </button>
+          </NavbarDrawer>
+          {/* <button onClick={() => setOpen(!open)}>
+            {open ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <TextAlignJustify className="w-5 h-5" />
+            )}
+          </button> */}
         </div>
       </header>
 
