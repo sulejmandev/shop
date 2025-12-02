@@ -32,7 +32,9 @@ export default function DropdownWeight() {
         selectedKeys={selectedKeys}
         selectionMode="single"
         variant="flat"
-        onSelectionChange={setSelectedKeys}
+        onSelectionChange={(keys) =>
+          setSelectedKeys(new Set(keys as Set<string>))
+        }
       >
         <DropdownItem key="250 جرام">{'250 جرام'}</DropdownItem>
         <DropdownItem key="500 جرام">{'500 جرام'}</DropdownItem>

@@ -29,7 +29,9 @@ export default function DropdownCU() {
         selectedKeys={selectedKeys}
         selectionMode="single"
         variant="flat"
-        onSelectionChange={setSelectedKeys}
+        onSelectionChange={(keys) =>
+          setSelectedKeys(new Set(keys as Set<string>))
+        }
       >
         <DropdownItem key="KD">KD</DropdownItem>
         <DropdownItem key="ريال">ريال</DropdownItem>

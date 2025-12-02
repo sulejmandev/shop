@@ -32,12 +32,14 @@ export default function Hero() {
         pagination={{ clickable: true }}
         onSlideChange={() => console.log('slide change')}
         className="w-full h-full"
-        style={{
-          '--swiper-pagination-color': '#5a3519',
-          '--swiper-pagination-bullet-inactive-color': '#ffffff',
-          '--swiper-pagination-bullet-inactive-opacity': '1',
-          '--swiper-pagination-bullet-horizontal-gap': '1.5px',
-        }}
+        style={
+          {
+            ['--swiper-pagination-color']: '#5a3519',
+            ['--swiper-pagination-bullet-inactive-color']: '#ffffff',
+            ['--swiper-pagination-bullet-inactive-opacity']: '1',
+            ['--swiper-pagination-bullet-horizontal-gap']: '1.5px',
+          } as React.CSSProperties
+        }
       >
         {img.desktop.map((image, index) => (
           <SwiperSlide key={index}>
