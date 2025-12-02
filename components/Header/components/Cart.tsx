@@ -52,7 +52,12 @@ export default function Cart() {
               >
                 الذهاب الى صفحة السلة
               </Button>
-              <Button className="w-full bg-[#5a3519] text-white" size="lg">
+              <Button
+                className="w-full bg-[#5a3519] text-white"
+                size="lg"
+                as={Link}
+                href="/checkout"
+              >
                 الدفع
               </Button>
             </div>

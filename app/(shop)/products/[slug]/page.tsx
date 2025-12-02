@@ -15,21 +15,30 @@ export default function ProductPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = use(params); // 🔥 لا تغييره — كما طلبت
+  const { slug } = use(params);
 
   const [product, setProduct] = useState<ProductType | null>(null);
 
   useEffect(() => {
-    const getAllProducts = async () => {
-      const res = await fetch(process.env.NEXT_PUBLIC_API_GET_ALL_PRODUCTS!);
-      const json = await res.json();
+    const fetchData = async () => {
+      const [allRes, honeyRes] = await Promise.all([
+        fetch(process.env.NEXT_PUBLIC_API_GET_ALL_PRODUCTS!),
+        fetch(
+          `${process.env.NEXT_PUBLIC_API_GET_BY_CATEGORY}?category=خلطات العسل&category=العسل العضوي`
+        ),
+      ]);
 
-      const found = json.products.find((p: ProductType) => p.slug === slug);
+      const all = await allRes.json();
+      const honey = await honeyRes.json();
+
+      const products = [...all.products, ...honey.products];
+
+      const found = products.find((p: ProductType) => p.slug === slug);
 
       setProduct(found || null);
     };
 
-    getAllProducts();
+    fetchData();
   }, [slug]);
 
   const [value, setValue] = useState('');

@@ -58,7 +58,7 @@ export default function OurProducts() {
       {/* القسم الذي نراقبه */}
       <div ref={sectionRef}>
         <div
-          className="grid gap-3 grid-cols-[repeat(auto-fill,minmax(120px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(180px,1fr))] mt-6"
+          className="grid gap-3 grid-cols-[repeat(auto-fill,minmax(180px,1fr))] mt-6"
           dir="rtl"
         >
           {/* ❗ Skeleton قبل التحميل */}
@@ -77,8 +77,8 @@ export default function OurProducts() {
             data.map((product) => (
               <SmallProductCard
                 key={product._id}
-                img={product.img}
-                name={product.name}
+                image={product.img}
+                title={product.name}
                 description={product.description}
                 price={product.price}
                 slug={product.slug}
