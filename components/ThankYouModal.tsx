@@ -9,7 +9,7 @@ import {
 } from '@heroui/react';
 
 export default function ThankYouModal() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpenChange } = useDisclosure();
 
   return (
     <>

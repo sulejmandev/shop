@@ -25,16 +25,22 @@ const countries = [
   { name: 'المغرب', code: '+212', flag: 'https://flagcdn.com/w40/ma.png' },
 ];
 
+type CountryType = {
+  name: string;
+  code: string;
+  flag: string;
+};
+
 export default function CountryDrawer() {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState('');
-  const [selected, setSelected] = useState(''); // 👈 الدولة المختارة
+  const [selected, setSelected] = useState<CountryType | null>(null);
 
   const filtered = countries.filter(
     (c) => c.name.includes(search) || c.code.includes(search)
   );
 
-  const handleSelect = (country) => {
+  const handleSelect = (country: CountryType) => {
     setSelected(country); // حفظ الدولة المختارة
     setIsOpen(false); // إغلاق drawer
   };
